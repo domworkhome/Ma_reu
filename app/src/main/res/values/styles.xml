@@ -1,0 +1,65 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:timePickerDialogTheme">@style/AlertDialogCustom</item>
+        <item name="android:datePickerDialogTheme">@style/AlertDialogCustom</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogCustom</item>
+
+    </style>
+
+    <style name="AlertDialogCustom" parent="android:Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorPrimary">#00397F</item>
+        <item name="android:colorAccent">#0AAEEF</item>
+    </style>
+
+    <style name="CheckBoxtpi" parent="android:Widget.CompoundButton.CheckBox">
+        <item name="android:colorPrimary">#00397F</item>
+    </style>
+
+    <!-- TOOLBAR THEME -->
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- Color of the title text in the Toolbar -->
+        <item name="android:textColorPrimary">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorPrimary</item>
+    </style>
+
+    <!-- TOOLBAR TITLE THEME -->
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">21sp</item>
+    </style>
+
+    <!-- Basic Text style. -->
+    <style name="BasicText" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_basic_text</item>
+    </style>
+
+    <!-- TEXT VIEW ***************************************************************************** -->
+
+    <!-- Title Item of RecyclerView style. -->
+    <style name="TitleItem" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_item</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- Sub Title Item of RecyclerView style. -->
+    <style name="SubTitleItem" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_sub_item</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- Title style. -->
+    <style name="Title" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_title</item>
+    </style>
+
+    <!-- Dialog text style -->
+    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+</resources>

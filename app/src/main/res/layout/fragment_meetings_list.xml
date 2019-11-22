@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/fragment_meeting"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controllers.Fragments.MeetingsListFragment">
+
+<android.support.v7.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/list_meetings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controllers.Fragments.MeetingsListFragment"
+    tools:listitem="@layout/item_meeting"/>
+
+<android.support.design.widget.FloatingActionButton
+android:id="@+id/meeting_fab_add"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_margin="@dimen/margin_normal"
+android:layout_alignParentBottom="true"
+android:layout_alignParentEnd="true"
+app:backgroundTint="@color/colorAddFab"
+android:src="@drawable/ic_add_white_24dp"
+android:tint="@android:color/white"/>
+
+</RelativeLayout>

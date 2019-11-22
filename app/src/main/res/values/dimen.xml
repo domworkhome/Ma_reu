@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- MARGIN -->
+    <dimen name="margin_large">40dp</dimen>
+    <dimen name="margin_big">32dp</dimen>
+    <dimen name="margin_normal">24dp</dimen>
+    <dimen name="margin_little">8dp</dimen>
+    <dimen name="margin_tiny">4dp</dimen>
+
+    <!-- PADDING -->
+    <dimen name="padding_huge">56dp</dimen>
+    <dimen name="padding_normal">10dp</dimen>
+    <dimen name="padding_little">8dp</dimen>
+
+    <!-- ELEVATION -->
+    <dimen name="elevation_tool_bar">4dp</dimen>
+    <dimen name="elevation_fab">9dp</dimen>
+
+    <!-- TEXT SIZE -->
+    <dimen name="text_size_title">20sp</dimen>
+    <dimen name="text_size_basic_text">18sp</dimen>
+    <dimen name="text_size_item">18sp</dimen>
+    <dimen name="text_size_sub_item">14sp</dimen>
+
+    <!-- IMAGE SIZE -->
+    <dimen name="size_image_view">50dp</dimen>
+
+    <!-- XML DATA -->
+    <dimen name="width_separator">2dp</dimen>
+    <dimen name="radius_custom_button">20dp</dimen>
+    <dimen name="width_stroke_custom_button">1dp</dimen>
+    <dimen name="space_cursor_spinner">5dp</dimen>
+
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ma réu</string>
+    <!-- fragment_meeting.xml -->
+    <string name="no_data">No data</string>
+
+    <!-- item_[...].xml -->
+    <string name="text_topic_hour_room">Refonte - 25/10/19 - 15h00 - Mario</string>
+    <string name="text_participant_mail">luc@lamzone.com, amandine@lamzone.com</string>
+</resources>
+

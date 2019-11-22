@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_LL"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dp">
+
+
+    <!-- IMAGE VIEW -->
+
+        <ImageView
+            android:id="@+id/item_meeting_room_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            tools:ignore="ContentDescription"
+            android:src="@drawable/ic_mario" />
+
+<android.support.constraint.ConstraintLayout
+    android:id="@+id/cs_row"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <!-- TEXT VIEW: TOPIC, HOUR AND ROOM -->
+
+            <TextView
+                android:id="@+id/item_meeting_info"
+                style="@style/TitleItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/text_topic_hour_room"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/item_meeting_delete"/>
+
+            <!-- TEXT VIEW: PARTICIPANTS -->
+
+            <TextView
+                android:id="@+id/item_meeting_guests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/text_participant_mail"
+                style="@style/SubTitleItem"
+                app:layout_constraintTop_toBottomOf="@id/item_meeting_info"
+                app:layout_constraintBottom_toBottomOf="@id/cs_row"/>
+
+    <!-- IMAGE BUTTON -->
+
+    <ImageButton
+        android:id="@+id/item_meeting_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:src="@drawable/ic_delete_black_24dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="ContentDescription" />
+</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>
