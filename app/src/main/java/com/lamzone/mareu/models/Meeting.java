@@ -1,4 +1,4 @@
-package com.lamzone.mareu.Models;
+package com.lamzone.mareu.models;
 
 import java.util.Objects;
 

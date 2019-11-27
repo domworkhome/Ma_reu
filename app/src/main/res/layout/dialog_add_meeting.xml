@@ -134,7 +134,7 @@
             android:layout_margin="20dp"
             android:layout_gravity="center"/>
 
-        <com.lamzone.mareu.Views.Adapters.MultipleCheckboxSpinner
+        <com.lamzone.mareu.views.adapters.MultipleCheckboxSpinner
             android:id="@+id/members_spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

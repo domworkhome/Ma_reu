@@ -1,11 +1,8 @@
-package com.lamzone.mareu.Models;
+package com.lamzone.mareu.models;
 
 import android.support.annotation.NonNull;
-import android.widget.ImageView;
 
 import java.util.Objects;
-
-import butterknife.BindView;
 
 /**
  * // Created by Stéphane TAILLET on 20/10/2019

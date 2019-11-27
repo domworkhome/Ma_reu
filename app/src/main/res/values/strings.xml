@@ -6,5 +6,15 @@
     <!-- item_[...].xml -->
     <string name="text_topic_hour_room">Refonte - 25/10/19 - 15h00 - Mario</string>
     <string name="text_participant_mail">luc@lamzone.com, amandine@lamzone.com</string>
+    <string name="addmeeting_fill_all_fields_french">Veuillez remplir tous les champs</string>
+    <string name="addmeeting_fill_all_fields_english">Please fill all fields</string>
+    <string name="addmeeting_fields_french">"- Sujet de la réunion\n- Date de la réunion\n- Heure de la réunion\n- Salle de réunion\n- Participants"</string>
+    <string name="addmeeting_fields_english">"- MeetingTopic\n- Meeting date\n- Meeting hour\n- Meeting room\n- members"</string>
+    <string name="meeting_deleted_french">"Réunion supprimée"</string>
+    <string name="meeting_deleted_english">"Meeting deleted"</string>
+    <string name="filter_button_french">"Filtrer"</string>
+    <string name="filter_button_english">"Filter"</string>
+    <string name="filter_room_title_french">"Choisir une salle"</string>
+    <string name="filter_room_title_english">"Pick a meeting room"</string>
 </resources>
 

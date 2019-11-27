@@ -1,4 +1,4 @@
-package com.lamzone.mareu.Views.Adapters;
+package com.lamzone.mareu.views.adapters;
 
 import android.content.Context;
 import android.content.DialogInterface;

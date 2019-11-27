@@ -1,14 +1,14 @@
-package com.lamzone.mareu.Controllers.DI;
+package com.lamzone.mareu.controllers.di;
 
 import android.support.annotation.VisibleForTesting;
-import com.lamzone.mareu.Services.DummyApiService;
-import com.lamzone.mareu.Services.ApiService;
+import com.lamzone.mareu.services.DummyApiService;
+import com.lamzone.mareu.services.ApiService;
 
 /**
  * // Created by Stéphane TAILLET on 21/10/2019
  */
 
-public abstract class DI {
+public abstract class Di {
 
     // FIELDS
 

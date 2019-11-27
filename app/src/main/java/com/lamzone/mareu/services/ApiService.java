@@ -1,7 +1,7 @@
-package com.lamzone.mareu.Services;
+package com.lamzone.mareu.services;
 
-import com.lamzone.mareu.Models.Meeting;
-import com.lamzone.mareu.Models.MeetingRoom;
+import com.lamzone.mareu.models.Meeting;
+import com.lamzone.mareu.models.MeetingRoom;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,19 +24,6 @@ public interface ApiService {
      * @param meeting
      */
     void addMeeting(Meeting meeting);
-//
-//    /**
-//     *
-//     * @return
-//     */
-//    //List<String> getMeetingRoom();
-//
-//    /**
-//     *
-//     * @return
-//     */
-//   // List<MeetingRoom> getMeetingRoomPic();
-
     /**
      *
      * @return

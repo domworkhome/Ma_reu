@@ -1,43 +1,17 @@
-package com.lamzone.mareu.Views.Adapters;
+package com.lamzone.mareu.views.adapters;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.lamzone.mareu.Controllers.Activities.MainActivity;
-import com.lamzone.mareu.Controllers.DI.DI;
-import com.lamzone.mareu.Models.Meeting;
-import com.lamzone.mareu.Models.MeetingRoom;
 import com.lamzone.mareu.R;
-import com.lamzone.mareu.Services.ApiService;
-import com.lamzone.mareu.Services.DummyGenerator;
-import com.lamzone.mareu.Views.Dialogs.AddMeetingDialog;
+import com.lamzone.mareu.models.Meeting;
 
-import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
@@ -48,10 +22,8 @@ import butterknife.ButterKnife;
  */
 public class MeetingsListAdapter extends RecyclerView.Adapter<MeetingsListAdapter.MeetingsViewHolder> {
 
-    // FOR DATA
     private List<Meeting> mMeetings;
 
-    // CONSTRUCTOR
     public MeetingsListAdapter(List<Meeting> meetings) {
         mMeetings = meetings;
     }
@@ -66,7 +38,6 @@ public class MeetingsListAdapter extends RecyclerView.Adapter<MeetingsListAdapte
         TextView mMeetingGuests;
         @BindView(R.id.item_meeting_delete)
         ImageButton mMeetingDelete;
-
 
         public MeetingsViewHolder(View itemView) {
             super(itemView);
@@ -103,15 +74,8 @@ public class MeetingsListAdapter extends RecyclerView.Adapter<MeetingsListAdapte
                 mMeetings.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position,mMeetings.size());
-                Toast.makeText(v.getContext(),"Réunion supprimée", Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(),R.string.meeting_deleted_french, Toast.LENGTH_SHORT).show();
                 }
-        });
-
-        meetingsViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(),"Click on position " + position, Toast.LENGTH_SHORT).show();
-            }
         });
     }
 

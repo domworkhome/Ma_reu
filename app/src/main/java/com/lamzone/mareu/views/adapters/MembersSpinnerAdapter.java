@@ -1,4 +1,4 @@
-package com.lamzone.mareu.Views.Adapters;
+package com.lamzone.mareu.views.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.lamzone.mareu.Models.Member;
+import com.lamzone.mareu.models.Member;
 import com.lamzone.mareu.R;
 
 import java.util.ArrayList;

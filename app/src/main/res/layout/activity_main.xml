@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controllers.Activities.MainActivity">
+    tools:context=".controllers.activities.MainActivity">
 
 
     <!-- IMPORT TOOLBAR -->
@@ -16,14 +16,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <FrameLayout
+    <fragment
+        android:name="com.lamzone.mareu.controllers.fragments.MeetingsListFragment"
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_below="@id/toolbar"
         tools:listitem="@layout/fragment_meetings_list"
-        android:id="@+id/activity_main_container">
-
-    </FrameLayout>
+        android:id="@+id/activity_main_container"/>
 
 </RelativeLayout>

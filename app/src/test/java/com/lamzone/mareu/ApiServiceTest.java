@@ -1,11 +1,9 @@
 package com.lamzone.mareu;
 
-import com.lamzone.mareu.Controllers.DI.DI;
-import com.lamzone.mareu.Models.Meeting;
-import com.lamzone.mareu.Models.MeetingRoom;
-import com.lamzone.mareu.Models.Member;
-import com.lamzone.mareu.Services.ApiService;
-import com.lamzone.mareu.Services.DummyGenerator;
+import com.lamzone.mareu.controllers.di.Di;
+import com.lamzone.mareu.models.Meeting;
+import com.lamzone.mareu.services.ApiService;
+import com.lamzone.mareu.services.DummyGenerator;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +33,7 @@ public class ApiServiceTest {
 
     @Before
     public void setUp() {
-        this.mService = DI.getNewInstanceApiService();
+        this.mService = Di.getNewInstanceApiService();
     }
 
     @Test

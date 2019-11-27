@@ -1,8 +1,8 @@
-package com.lamzone.mareu.Services;
+package com.lamzone.mareu.services;
 
-import com.lamzone.mareu.Models.Meeting;
-import com.lamzone.mareu.Models.MeetingRoom;
-import com.lamzone.mareu.Models.Member;
+import com.lamzone.mareu.models.Meeting;
+import com.lamzone.mareu.models.MeetingRoom;
+import com.lamzone.mareu.models.Member;
 import com.lamzone.mareu.R;
 
 import java.util.ArrayList;
