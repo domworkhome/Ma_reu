@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -27,6 +28,7 @@ import com.lamzone.mareu.R;
 import com.lamzone.mareu.controllers.di.Di;
 import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.models.MeetingRoom;
+import com.lamzone.mareu.services.ApiService;
 import com.lamzone.mareu.services.DummyGenerator;
 import com.lamzone.mareu.views.adapters.MeetingsListAdapter;
 import com.lamzone.mareu.views.adapters.MultipleCheckboxSpinner;
@@ -36,6 +38,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import butterknife.BindView;
 
 /**
  * // Created by Stéphane TAILLET on 26/10/2019
@@ -200,7 +204,6 @@ public class AddMeetingDialog extends DialogFragment {
                     alertDialog.dismiss();
                     Meeting newMeeting = new Meeting(addMeetingTopic, meetingDate, meetingTime, meetingRoomNameOrPic, meetingMembers, meetingRoomNameOrPic);
                     Di.getApiService().addMeeting(newMeeting);
-
                 } else {
                     android.support.v7.app.AlertDialog dialog = new AlertDialog.Builder(v.getContext())
                             .setTitle(getString(R.string.addmeeting_fill_all_fields_french))

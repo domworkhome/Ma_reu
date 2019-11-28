@@ -51,6 +51,7 @@ public class MeetingsListAdapter extends RecyclerView.Adapter<MeetingsListAdapte
             String createMeetingGuests = meeting.getMembers();
             mMeetingGuests.setText(createMeetingGuests);
             mMeetingRoomIcon.setImageResource(meeting.getMeetingRoomAndPic().getMeetingRoomPic());
+
         }
     }
 
