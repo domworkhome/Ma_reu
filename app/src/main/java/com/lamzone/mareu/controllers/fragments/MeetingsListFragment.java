@@ -77,7 +77,6 @@ public class MeetingsListFragment extends Fragment {
             public void onClick(View view) {
                 AddMeetingDialog addMeetingDialog = new AddMeetingDialog();
                 addMeetingDialog.show(getFragmentManager().beginTransaction(),"addmeetingdialog");
-                Toast.makeText(getContext(), "Création de réunion", Toast.LENGTH_LONG).show();
             }
         });
     }

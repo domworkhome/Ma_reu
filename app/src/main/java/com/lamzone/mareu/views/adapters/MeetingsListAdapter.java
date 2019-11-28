@@ -46,7 +46,7 @@ public class MeetingsListAdapter extends RecyclerView.Adapter<MeetingsListAdapte
 
         public void updateMeeting (Meeting meeting){
 
-            String createMeetingInfo =  meeting.getMeetingTopic() + " - " + meeting.getMeetingDate() + " - " + meeting.getMeetingHour() + " - " + meeting.getMeetingRoom();
+            String createMeetingInfo =  meeting.getMeetingTopic() + "\n" + meeting.getMeetingDate() + " - " + meeting.getMeetingHour() + " - " + meeting.getMeetingRoom();
             mMeetingInfo.setText(createMeetingInfo);
             String createMeetingGuests = meeting.getMembers();
             mMeetingGuests.setText(createMeetingGuests);

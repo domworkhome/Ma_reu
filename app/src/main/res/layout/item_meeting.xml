@@ -6,6 +6,7 @@
     android:id="@+id/main_LL"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_little"
     android:orientation="horizontal"
     android:padding="5dp">
 
@@ -16,6 +17,8 @@
             android:id="@+id/item_meeting_room_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginTop="@dimen/margin_little"
+            android:layout_marginBottom="@dimen/margin_little"
             tools:ignore="ContentDescription"
             android:src="@drawable/ic_mario" />
 
@@ -33,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
+                android:singleLine="false"
                 android:text="@string/text_topic_hour_room"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/item_meeting_delete"/>

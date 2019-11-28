@@ -103,9 +103,6 @@ public class AddMeetingDialog extends DialogFragment {
             }
         };
 
-        // ----------------------------------------------------------------------------- DATE PICKER
-
-        // TIME PICKER -----------------------------------------------------------------------------
         iv_time = dialogView.findViewById(R.id.iv_timepicker);
         tv_time = dialogView.findViewById(R.id.tv_timepicker);
         iv_time.setOnClickListener(new View.OnClickListener() {
@@ -145,10 +142,6 @@ public class AddMeetingDialog extends DialogFragment {
             }
         };
 
-        // ----------------------------------------------------------------------------- TIME PICKER
-
-        // SPINNER TO CHOOSE MEETINGROOM -----------------------------------------------------------
-
         roomSpinner = dialogView.findViewById(R.id.room_spinner);
         roomSpinnerPic = dialogView.findViewById(R.id.spinner_meeting_room_icon);
         listMeetingRoomNameAndPic = DummyGenerator.dummyMeetingRoomAndPicGenerator();
@@ -169,10 +162,6 @@ public class AddMeetingDialog extends DialogFragment {
             }
         });
 
-        // ----------------------------------------------------------- SPINNER TO CHOOSE MEETINGROOM
-
-        // SPINNER TO CHOOSE MEMBERS ---------------------------------------------------------------
-
         membersSpinner = (MultipleCheckboxSpinner) dialogView.findViewById(R.id.members_spinner);
         listMembers = DummyGenerator.dummyMembersGenerator();
         membersSpinner.setItems(listMembers);
@@ -186,7 +175,6 @@ public class AddMeetingDialog extends DialogFragment {
             }
         });
 
-        // --------------------------------------------------------------- SPINNER TO CHOOSE MEMBERS
         builder.setView(dialogView);
         builder.setPositiveButton("Ajouter", null);
         builder.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
