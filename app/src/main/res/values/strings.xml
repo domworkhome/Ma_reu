@@ -16,5 +16,6 @@
     <string name="filter_button_english">"Filter"</string>
     <string name="filter_room_title_french">"Choisir une salle"</string>
     <string name="filter_room_title_english">"Pick a meeting room"</string>
+    <string name="time_separator">":"</string>
 </resources>
 

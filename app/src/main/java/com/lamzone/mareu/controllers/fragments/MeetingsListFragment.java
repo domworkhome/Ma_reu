@@ -1,6 +1,5 @@
 package com.lamzone.mareu.controllers.fragments;
 
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -30,14 +29,13 @@ import butterknife.ButterKnife;
  */
 public class MeetingsListFragment extends Fragment {
 
-    //FIELDS
     @BindView(R.id.list_meetings)
     RecyclerView mRecyclerView;
     @BindView(R.id.meeting_fab_add)
     FloatingActionButton mAddFab;
-    private ApiService mApiService;
+    ApiService mApiService;
     public List<Meeting> mMeetings;
-    private MeetingsListAdapter mListAdapter;
+    MeetingsListAdapter mListAdapter;
 
     public MeetingsListFragment() {}
 
@@ -70,13 +68,9 @@ public class MeetingsListFragment extends Fragment {
     }
 
     private void onClickMeetingAddFab(){
-        mAddFab.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                AddMeetingDialog addMeetingDialog = new AddMeetingDialog();
-                addMeetingDialog.show(getFragmentManager().beginTransaction(),"addmeetingdialog");
-            }
+        mAddFab.setOnClickListener(view -> {
+            AddMeetingDialog addMeetingDialog = new AddMeetingDialog();
+            addMeetingDialog.show(getFragmentManager().beginTransaction(),"addmeetingdialog");
         });
     }
 }

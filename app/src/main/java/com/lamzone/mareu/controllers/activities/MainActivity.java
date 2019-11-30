@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView roomSpinnerPic;
     private String TAG;
     String itemName = "";
-    MeetingsListAdapter mMeetingsListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
