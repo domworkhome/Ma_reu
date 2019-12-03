@@ -158,7 +158,7 @@ public class AddMeetingDialog extends DialogFragment {
         membersSpinner = dialogView.findViewById(R.id.members_spinner);
         listMembers = DummyGenerator.dummyMembersGenerator();
         membersSpinner.setItems(listMembers);
-        membersSpinner.setSelection(5);
+        membersSpinner.setSelection(0);
         membersSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
