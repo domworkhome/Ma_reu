@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,10 +25,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.support.constraint.Constraints.TAG;
+
 /**
  * // Created by Stéphane TAILLET on 20/10/2019
  */
-public class MeetingsListFragment extends Fragment {
+public class MeetingsListFragment extends Fragment implements AddMeetingDialog.NewMeetingDatasListener{
 
     @BindView(R.id.list_meetings)
     RecyclerView mRecyclerView;
@@ -70,7 +73,14 @@ public class MeetingsListFragment extends Fragment {
     private void onClickMeetingAddFab(){
         mAddFab.setOnClickListener(view -> {
             AddMeetingDialog addMeetingDialog = new AddMeetingDialog();
+            addMeetingDialog.setTargetFragment(MeetingsListFragment.this, 1);
             addMeetingDialog.show(getFragmentManager().beginTransaction(),"addmeetingdialog");
         });
+    }
+
+    @Override
+    public void onPositiveButtonClick(Meeting meetingCreated) {
+        Log.d(TAG, "onPositiveButtonClick: found incoming new meeting : " + meetingCreated);
+        initList();
     }
 }

@@ -18,7 +18,6 @@ import com.lamzone.mareu.controllers.di.Di;
 import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.models.MeetingRoom;
 import com.lamzone.mareu.services.DummyGenerator;
-import com.lamzone.mareu.views.adapters.MeetingsListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

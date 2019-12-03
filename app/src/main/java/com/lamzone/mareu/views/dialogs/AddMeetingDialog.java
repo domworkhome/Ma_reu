@@ -3,6 +3,7 @@ package com.lamzone.mareu.views.dialogs;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -27,7 +28,6 @@ import com.lamzone.mareu.controllers.di.Di;
 import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.models.MeetingRoom;
 import com.lamzone.mareu.services.DummyGenerator;
-import com.lamzone.mareu.views.adapters.MeetingsListAdapter;
 import com.lamzone.mareu.views.adapters.MultipleCheckboxSpinner;
 
 import java.text.SimpleDateFormat;
@@ -58,9 +58,21 @@ public class AddMeetingDialog extends DialogFragment {
     private int day;
     private int hour;
     private int minute;
-    List<MeetingRoom> listMeetingRoomNameAndPic;
     private MeetingRoom meetingRoomNameOrPic;
+    List<MeetingRoom> listMeetingRoomNameAndPic;
     List<String> listMembers;
+
+    NewMeetingDatasListener callback;
+
+    public void setNewMeetingDatasListener(NewMeetingDatasListener callback){
+        this.callback = callback;
+    }
+
+    public interface NewMeetingDatasListener {
+        void onPositiveButtonClick(Meeting meetingCreated);
+    }
+
+    public NewMeetingDatasListener newMeetingDatasListener;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -83,7 +95,7 @@ public class AddMeetingDialog extends DialogFragment {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.FRENCH);
             String currentDate = simpleDateFormat.format(calendar.getTime());
 
-            if (chosendate.compareTo(currentDate) > 0){
+            if (chosendate.compareTo(currentDate) > 0) {
                 Log.d(TAG, "onDateSet: La date choisie :" + chosendate + " est future à la date actuelle : " + currentDate);
             }
         };
@@ -93,7 +105,7 @@ public class AddMeetingDialog extends DialogFragment {
         minute = cal.get(Calendar.MINUTE);
         ivTime = dialogView.findViewById(R.id.iv_timepicker);
         tvTime = dialogView.findViewById(R.id.tv_timepicker);
-        if (cal.get(Calendar.DATE) != Calendar.getInstance().get(Calendar.DATE)){
+        if (cal.get(Calendar.DATE) != Calendar.getInstance().get(Calendar.DATE)) {
             tvTime.setText(cal.get(Calendar.HOUR_OF_DAY) + getString(R.string.time_separator) + cal.get(Calendar.MINUTE));
         } else {
         }
@@ -108,7 +120,7 @@ public class AddMeetingDialog extends DialogFragment {
             datetime.set(Calendar.YEAR, year);
             datetime.set(Calendar.HOUR_OF_DAY, hour);
             datetime.set(Calendar.MINUTE, minute);
-            if (tvDate.getText().toString().equals("")){
+            if (tvDate.getText().toString().equals("")) {
                 Toast toast = Toast.makeText(getContext(), "Veuillez d'abord choisir une date pour la réunion", Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
@@ -174,8 +186,8 @@ public class AddMeetingDialog extends DialogFragment {
             String meetingDate = tvDate.getText().toString();
             String meetingTime = tvTime.getText().toString();
             if (addMeetingTopic.equals(EMPTY_STRING)
-                    ||meetingTime.equals(EMPTY_STRING)
-                    ||meetingMembers.equals(EMPTY_STRING)) {
+                    || meetingTime.equals(EMPTY_STRING)
+                    || meetingMembers.equals(EMPTY_STRING)) {
                 new AlertDialog.Builder(v.getContext())
                         .setTitle(getString(R.string.addmeeting_fill_all_fields_french))
                         .setMessage(getString(R.string.addmeeting_fields_french))
@@ -183,13 +195,15 @@ public class AddMeetingDialog extends DialogFragment {
                         })
                         .show();
             } else {
-                alertDialog.dismiss();
                 Meeting newMeeting = new Meeting(addMeetingTopic, meetingDate, meetingTime, meetingRoomNameOrPic, meetingMembers, meetingRoomNameOrPic);
                 Di.getApiService().addMeeting(newMeeting);
+                newMeetingDatasListener.onPositiveButtonClick(newMeeting);
+                alertDialog.dismiss();
             }
         });
         return alertDialog;
     }
+
     View.OnClickListener dateListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -221,4 +235,14 @@ public class AddMeetingDialog extends DialogFragment {
             timeDialog.show();
         }
     };
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            newMeetingDatasListener = (NewMeetingDatasListener) getTargetFragment();
+        } catch (ClassCastException e){
+            Log.e(TAG, "onAttach: ClassException : " + e.getMessage());
+        }
+    }
 }
