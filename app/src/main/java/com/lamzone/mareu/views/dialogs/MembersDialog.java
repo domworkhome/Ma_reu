@@ -40,7 +40,7 @@ public class MembersDialog extends DialogFragment {
         builder.setPositiveButton("OK", (dialog, which) -> {
             String final_selection = "";
             for(String Item : meetingMembers){
-                final_selection = Item + "@lamzone.com, " + final_selection;
+                final_selection = Item + ", " + final_selection;
             }
            callback.onMembersPositiveButtonClick(final_selection);
         });
