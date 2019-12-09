@@ -9,18 +9,14 @@ public class Meeting {
 
     private String mMeetingTopic;
     private String mMeetingDate;
-    private String mMeetingHour;
     private MeetingRoom mMeetingRoom;
     private String  mMembers;
-    private MeetingRoom mMeetingRoomAndPic;
 
-    public Meeting(String meetingTopic, String meetingDate, String meetingHour, MeetingRoom meetingRoom, String members, MeetingRoom meetingRoomAndPic) {
+    public Meeting(String meetingTopic, String meetingDate, MeetingRoom meetingRoom, String members) {
         mMeetingTopic = meetingTopic;
         mMeetingDate = meetingDate;
-        mMeetingHour = meetingHour;
         mMeetingRoom = meetingRoom;
         mMembers = members;
-        mMeetingRoomAndPic = meetingRoomAndPic;
     }
 
     public String getMeetingTopic() {
@@ -31,10 +27,6 @@ public class Meeting {
         return mMeetingDate;
     }
 
-    public String getMeetingHour() {
-        return mMeetingHour;
-    }
-
     public MeetingRoom  getMeetingRoom() {
         return mMeetingRoom;
     }
@@ -42,11 +34,6 @@ public class Meeting {
     public String getMembers() {
         return mMembers + "@lamzone.com";
     }
-
-    public MeetingRoom getMeetingRoomAndPic() {
-        return mMeetingRoomAndPic;
-    }
-
 
     @Override
     public boolean equals(Object obj) {

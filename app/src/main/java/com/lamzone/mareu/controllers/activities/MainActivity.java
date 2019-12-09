@@ -12,16 +12,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
-
 import com.lamzone.mareu.R;
-import com.lamzone.mareu.controllers.di.Di;
+import com.lamzone.mareu.di.Di;
 import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.models.MeetingRoom;
 import com.lamzone.mareu.services.DummyGenerator;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -38,9 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ButterKnife.bind(this);
-
         setSupportActionBar(mToolbar);
     }
 
@@ -69,13 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void configureAndShowAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-
         View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.filter_list_dialog, null);
-
         Spinner spinner = view.findViewById(R.id.spinner_choice);
         roomSpinnerPic = view.findViewById(R.id.spinner_meeting_room_icon);
         listMeetingRoomNameAndPic = DummyGenerator.dummyMeetingRoomAndPicGenerator();
-
         ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_spinner_item, listMeetingRoomNameAndPic);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -101,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("Annuler",
                         (dialog, which) -> {
                         });
-
         builder.create().show();
     }
 }

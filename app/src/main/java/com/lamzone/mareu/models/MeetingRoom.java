@@ -11,8 +11,8 @@ public class MeetingRoom {
 
     // FIELDS
 
-    public String mMeetingRoomName;
-    public int mMeetingRoomPic;
+    private String mMeetingRoomName;
+    private int mMeetingRoomPic;
 
     // CONSTRUCTOR
 
@@ -39,13 +39,10 @@ public class MeetingRoom {
 
     @Override
     public boolean equals(Object obj) {
-        // Same address
         if (this == obj) return true;
 
-        // Null or the class is different
         if (obj == null || getClass() != obj.getClass()) return false;
 
-        // Cast Object to Room
         MeetingRoom meetingRoom = (MeetingRoom) obj;
 
         return Objects.equals(this.mMeetingRoomName, meetingRoom.mMeetingRoomName);

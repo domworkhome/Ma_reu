@@ -12,8 +12,9 @@
 
     <!-- PADDING -->
     <dimen name="padding_huge">56dp</dimen>
-    <dimen name="padding_normal">10dp</dimen>
+    <dimen name="padding_normal">20dp</dimen>
     <dimen name="padding_little">8dp</dimen>
+    <dimen name="drawable_padding">15dp</dimen>
 
     <!-- ELEVATION -->
     <dimen name="elevation_tool_bar">4dp</dimen>

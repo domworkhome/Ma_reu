@@ -1,6 +1,6 @@
 package com.lamzone.mareu;
 
-import com.lamzone.mareu.controllers.di.Di;
+import com.lamzone.mareu.di.Di;
 import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.services.ApiService;
 import com.lamzone.mareu.services.DummyGenerator;

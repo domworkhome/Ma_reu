@@ -1,4 +1,4 @@
-package com.lamzone.mareu.controllers.di;
+package com.lamzone.mareu.di;
 
 import android.support.annotation.VisibleForTesting;
 import com.lamzone.mareu.services.DummyApiService;
