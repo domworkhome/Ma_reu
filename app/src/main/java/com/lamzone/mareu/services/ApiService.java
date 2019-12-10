@@ -24,17 +24,6 @@ public interface ApiService {
      * @param meeting
      */
     void addMeeting(Meeting meeting);
-    /**
-     *
-     * @return
-     */
-    List<MeetingRoom> getMeetingRoomAndPic();
 
-    /**
-     *
-     * @return
-     */
-    List<String> getMembers();
-
-    ArrayList<Meeting> filter(String text);
+    List<Meeting> filterByRoom(MeetingRoom meetingRoom);
 }

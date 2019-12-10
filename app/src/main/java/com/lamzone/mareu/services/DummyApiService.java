@@ -12,8 +12,8 @@ import java.util.List;
 public class DummyApiService implements ApiService {
 
     private List<Meeting> mMeetingList = DummyGenerator.dummyMeetingsGenerator();
-    private List<MeetingRoom> mMeetingRoomsAndPic = DummyGenerator.dummyMeetingRoomAndPicGenerator();
-    private List<String> mMemberList = DummyGenerator.dummyMembersGenerator();
+
+    public static List<Meeting> MEETING_LIST;
 
     @Override
     public List<Meeting> getMeetings() {
@@ -31,17 +31,17 @@ public class DummyApiService implements ApiService {
     }
 
     @Override
-    public List<MeetingRoom> getMeetingRoomAndPic() {
-        return this.mMeetingRoomsAndPic;
-    }
+    public List<Meeting> filterByRoom(MeetingRoom meetingRoom) {
+        List<Meeting> filteredList = new ArrayList<>();
 
-    @Override
-    public List<String> getMembers() {
-        return this.mMemberList;
-    }
+        for (int i = 0; i < DummyApiService.MEETING_LIST.size(); i ++)
+        {
+            if (DummyApiService.MEETING_LIST.get(i).getMeetingRoom().getMeetingRoomName().equals(meetingRoom.getMeetingRoomName()))
+            {
+                filteredList.add(DummyApiService.MEETING_LIST.get(i));
+            }
+        }
 
-    @Override
-    public ArrayList<Meeting> filter(String text) {
-        return null;
+        return filteredList;
     }
 }

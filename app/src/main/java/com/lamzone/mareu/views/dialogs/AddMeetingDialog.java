@@ -55,7 +55,7 @@ public class AddMeetingDialog extends DialogFragment implements MembersDialog.Se
     List<MeetingRoom> listMeetingRoomNameAndPic;
 
     public interface NewMeetingDatasListener {
-        void onPositiveButtonClick(Meeting meetingCreated);
+        void onPositiveButtonClick();
     }
     NewMeetingDatasListener callback;
 
@@ -73,6 +73,7 @@ public class AddMeetingDialog extends DialogFragment implements MembersDialog.Se
 
         final View.OnClickListener dateListener = view -> {
             mCalendar = Calendar.getInstance();
+            if(getContext() == null) return;
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), mDateDataSet,
                     mCalendar.get(Calendar.YEAR),
                     mCalendar.get(Calendar.MONTH),mCalendar.get(Calendar.DAY_OF_MONTH));
@@ -105,7 +106,7 @@ public class AddMeetingDialog extends DialogFragment implements MembersDialog.Se
         });
 
         builder.setView(dialogView);
-        builder.setPositiveButton("Ajouter", null);
+        builder.setPositiveButton(R.string.add_Button, null);
         builder.setNegativeButton("Annuler", (dialog, which) -> {
         });
 
@@ -121,15 +122,13 @@ public class AddMeetingDialog extends DialogFragment implements MembersDialog.Se
             if (addMeetingTopic.equals(EMPTY_STRING)
                     || meetingDate.equals(EMPTY_STRING)
                     || meetingMembers.equals(EMPTY_STRING)) {
-                Toast toast = Toast.makeText(getContext(),"Veuillez remplir tous les champs\n" +
-                        "- Sujet de la réunion\n- Date de la réunion et heure de la réunion\n" +
-                        "- Salle de réunion\n- Participants",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getContext(),getString(R.string.Fill_all_fields),Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
             } else {
                 Meeting newMeeting = new Meeting(addMeetingTopic, meetingDate, meetingRoomNameOrPic, meetingMembers);
                 Di.getApiService().addMeeting(newMeeting);
-                callback.onPositiveButtonClick(newMeeting);
+                callback.onPositiveButtonClick();
                 alertDialog.dismiss();
             }
         });

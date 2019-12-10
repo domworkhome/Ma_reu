@@ -24,13 +24,13 @@ import static android.support.constraint.Constraints.TAG;
 
 public class MeetingsListFragment extends Fragment implements AddMeetingDialog.NewMeetingDatasListener{
 
+    public static List<Meeting> mMeetings;
     @BindView(R.id.list_meetings)
     RecyclerView mRecyclerView;
     @BindView(R.id.meeting_fab_add)
     FloatingActionButton mAddFab;
     public static final int REQUEST_CODE = 999;
     ApiService mApiService;
-    public List<Meeting> mMeetings;
     MeetingsListAdapter mListAdapter;
 
     @Override
@@ -67,7 +67,12 @@ public class MeetingsListFragment extends Fragment implements AddMeetingDialog.N
     }
 
     @Override
-    public void onPositiveButtonClick(Meeting meetingCreated) {
+    public void onPositiveButtonClick() {
         initList();
+    }
+
+    public void dataChanged()
+    {
+        mListAdapter.notifyDataSetChanged();
     }
 }

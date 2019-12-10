@@ -13,6 +13,8 @@
     <string name="filter_room_title_french">"Choisir une salle"</string>
     <string name="filter_room_title_english">"Pick a meeting room"</string>
     <string name="time_separator">":"</string>
+    <string name="add_Button">"Ajouter"</string>
+    <string name="Fill_all_fields">"Veuillez remplir tous les champs"</string>
 
     <string-array name="members">
         <item>anakin</item>

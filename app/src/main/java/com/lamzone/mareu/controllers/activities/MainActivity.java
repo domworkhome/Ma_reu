@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,12 +13,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 import com.lamzone.mareu.R;
+import com.lamzone.mareu.controllers.fragments.MeetingsListFragment;
 import com.lamzone.mareu.di.Di;
 import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.models.MeetingRoom;
+import com.lamzone.mareu.services.ApiService;
 import com.lamzone.mareu.services.DummyGenerator;
-import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
     List<MeetingRoom> listMeetingRoomNameAndPic;
+    MeetingsListFragment mMeetingsListFragment;
+    private ApiService mApiService;
+    private MeetingRoom mMeetingRoom;
     private ImageView roomSpinnerPic;
     private String TAG;
     String itemName = "";
@@ -88,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
                 .setView(view)
                 .setPositiveButton(getString(R.string.filter_button_french),
                         (dialog, which) -> {
-                    ArrayList<Meeting> rooms = Di.getApiService().filter(itemName);
+                            mMeetingsListFragment.mMeetings = mApiService.filterByRoom(mMeetingRoom);
+                            mMeetingsListFragment.dataChanged();
                         })
                 .setNegativeButton("Annuler",
                         (dialog, which) -> {

@@ -35,6 +35,10 @@ public class Meeting {
         return mMembers + "@lamzone.com";
     }
 
+    public void setMeetingRoom(MeetingRoom meetingRoom) {
+        this.mMeetingRoom= meetingRoom;
+    }
+
     @Override
     public boolean equals(Object obj) {
         // Same address

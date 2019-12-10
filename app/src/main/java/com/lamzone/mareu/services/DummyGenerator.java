@@ -64,15 +64,4 @@ public abstract class DummyGenerator implements ApiService{
     public static List<Meeting> dummyMeetingsGenerator() {
         return new ArrayList<>(dummyMeetings);
     }
-
-    @Override
-    public ArrayList<Meeting> filter(String text){
-        ArrayList<Meeting> reunionFiltered = new ArrayList<>();
-        for (Meeting r : dummyMeetings) {
-            if (r.getMeetingRoom().equals(text)){
-                reunionFiltered.add(r);
-            }
-        }
-        return reunionFiltered;
-    }
 }
