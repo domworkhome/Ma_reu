@@ -16,11 +16,17 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.lamzone.mareu.R;
+import com.lamzone.mareu.controllers.activities.MainActivity;
 import com.lamzone.mareu.controllers.fragments.MeetingsListFragment;
+import com.lamzone.mareu.di.Di;
 import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.models.MeetingRoom;
 import com.lamzone.mareu.services.ApiService;
+import com.lamzone.mareu.services.DummyApiService;
 import com.lamzone.mareu.services.DummyGenerator;
+import com.lamzone.mareu.views.adapters.MeetingsListAdapter;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class FilterDialog extends DialogFragment {
@@ -31,10 +37,7 @@ public class FilterDialog extends DialogFragment {
 
     filterByRoom callback;
 
-    List<Meeting> listMeetingRoomNameAndPic;
-    MeetingsListFragment mMeetingsListFragment;
-    private ApiService mApiService;
-    private MeetingRoom mMeetingRoom;
+    List<MeetingRoom> listMeetingRoomNameAndPic;
     private ImageView roomSpinnerPic;
     String itemName = "";
 
@@ -47,7 +50,7 @@ public class FilterDialog extends DialogFragment {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.filter_list_dialog, null);
         Spinner spinner = view.findViewById(R.id.spinner_choice);
         roomSpinnerPic = view.findViewById(R.id.spinner_meeting_room_icon);
-        listMeetingRoomNameAndPic = DummyGenerator.dummyMeetingsGenerator();
+        listMeetingRoomNameAndPic = DummyGenerator.dummyMeetingRoomAndPicGenerator();
         ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, listMeetingRoomNameAndPic);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -68,15 +71,11 @@ public class FilterDialog extends DialogFragment {
                 .setView(view)
                 .setPositiveButton(getString(R.string.filter_button_french),
                         (dialog, which) -> {
-
-                            //mMeetingsListFragment.mMeetings = mApiService.filterByRoom(mMeetingRoom);
+                            ArrayList<Meeting> filteredMeetings = Di.getApiService().filterByRoom(itemName);
                             Toast.makeText(getContext(),itemName, Toast.LENGTH_SHORT).show();
-//                            callback.onRoomFilterButtonClick();
-//                            mMeetingsListFragment.dataChanged();
                         })
                 .setNegativeButton(getString(R.string.cancel_button_french),
-                        (dialog, which) -> {
-                        });
+                        (dialog, which) -> {});
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();

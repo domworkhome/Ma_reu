@@ -25,5 +25,5 @@ public interface ApiService {
      */
     void addMeeting(Meeting meeting);
 
-    List<Meeting> filterByRoom(MeetingRoom meetingRoom);
+    ArrayList<Meeting> filterByRoom(String meetingRoom);
 }

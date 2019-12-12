@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,6 @@ import com.lamzone.mareu.views.dialogs.AddMeetingDialog;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import static android.support.constraint.Constraints.TAG;
 
 public class MeetingsListFragment extends Fragment implements AddMeetingDialog.NewMeetingDatasListener{
 

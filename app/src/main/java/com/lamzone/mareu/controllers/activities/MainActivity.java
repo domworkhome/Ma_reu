@@ -8,11 +8,15 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.lamzone.mareu.R;
+import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.views.dialogs.FilterDialog;
+
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements FilterDialog.filterByRoom {
+public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
@@ -54,10 +58,5 @@ public class MainActivity extends AppCompatActivity implements FilterDialog.filt
     private void filterByRoomButton(){
         FilterDialog filterDialog = new FilterDialog();
         filterDialog.show(getSupportFragmentManager().beginTransaction(),"addmeetingdialog");
-    }
-
-    @Override
-    public void onRoomFilterButtonClick() {
-
     }
 }

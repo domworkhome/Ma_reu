@@ -29,11 +29,11 @@ public class DummyApiService implements ApiService {
     }
 
     @Override
-    public List<Meeting> filterByRoom(MeetingRoom meetingRoom) {
-        List<Meeting> filteredList = new ArrayList<>();
+    public ArrayList<Meeting> filterByRoom(String meetingRoom) {
+        ArrayList<Meeting> filteredList = new ArrayList<>();
         for (int i = 0; i < mMeetingList.size(); i ++)
         {
-            if (mMeetingList.get(i).getMeetingRoom().getMeetingRoomName().equals(meetingRoom.getMeetingRoomName()))
+            if (mMeetingList.get(i).getMeetingRoom().getMeetingRoomName().equals(meetingRoom))
             {
                 filteredList.add(mMeetingList.get(i));
             }
