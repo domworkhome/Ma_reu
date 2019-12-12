@@ -4,17 +4,15 @@ import com.lamzone.mareu.di.Di;
 import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.services.ApiService;
 import com.lamzone.mareu.services.DummyGenerator;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
 import java.util.List;
-
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -25,11 +23,7 @@ import static org.junit.Assert.*;
 
 public class ApiServiceTest {
 
-    // FIELDS --------------------------------------------------------------------------------------
-
     private ApiService mService;
-
-    // METHODS -------------------------------------------------------------------------------------
 
     @Before
     public void setUp() {
@@ -52,34 +46,16 @@ public class ApiServiceTest {
         assertFalse(this.mService.getMeetings().contains(meeting));
     }
 
-//    @Test
-//    public void apiService_addMeeting() {
-//
-//        Meeting meeting = new Meeting(11, "Réunion test", "30/10/2019", "09:30", DummyGenerator.dummyMeetingRoomGenerator().get(6), DummyGenerator.dummyMembersgenerator().get(3));
-//
-//        assertFalse(this.mService.getMeetings().contains(meeting));
-//
-//        this.mService.addMeeting(meeting);
-//
-//        assertTrue(this.mService.getMeetings().contains(meeting));
-//
-//        //assertEquals(this.mService.getMeetings().size()+1, this.mService.getMeetings().size());
-//
-//    }
+    @Test
+    public void apiService_addMeeting() {
 
-//    @Test
-//    public void apiService_getRooms() {
-//        List<MeetingRoom> actualRooms = this.mService.getMeetingRoom();
-//        List<MeetingRoom> expectedRooms = DummyGenerator.dummyMeetingRoomGenerator();
-//
-//        assertThat(actualRooms, containsInAnyOrder(expectedRooms.toArray()));
-//    }
-//
-//    @Test
-//    public void apiService_getMembers() {
-//        List<Member> actualMembers = this.mService.getMembers();
-//        List<Member> expectedMembers = DummyGenerator.dummyMembersgenerator();
-//
-//        assertThat(actualMembers, containsInAnyOrder(expectedMembers.toArray()));
-//    }
+        Meeting meeting = new Meeting("Réunion test", "30/10/2019 - 09:30",
+                DummyGenerator.dummyMeetingRoomAndPicGenerator().get(6),"sowann");
+
+        assertFalse(this.mService.getMeetings().contains(meeting));
+
+        this.mService.addMeeting(meeting);
+
+        assertTrue(this.mService.getMeetings().contains(meeting));
+    }
 }

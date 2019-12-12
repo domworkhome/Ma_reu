@@ -13,8 +13,6 @@ public class DummyApiService implements ApiService {
 
     private List<Meeting> mMeetingList = DummyGenerator.dummyMeetingsGenerator();
 
-    public static List<Meeting> MEETING_LIST;
-
     @Override
     public List<Meeting> getMeetings() {
         return mMeetingList;
@@ -33,15 +31,13 @@ public class DummyApiService implements ApiService {
     @Override
     public List<Meeting> filterByRoom(MeetingRoom meetingRoom) {
         List<Meeting> filteredList = new ArrayList<>();
-
-        for (int i = 0; i < DummyApiService.MEETING_LIST.size(); i ++)
+        for (int i = 0; i < mMeetingList.size(); i ++)
         {
-            if (DummyApiService.MEETING_LIST.get(i).getMeetingRoom().getMeetingRoomName().equals(meetingRoom.getMeetingRoomName()))
+            if (mMeetingList.get(i).getMeetingRoom().getMeetingRoomName().equals(meetingRoom.getMeetingRoomName()))
             {
-                filteredList.add(DummyApiService.MEETING_LIST.get(i));
+                filteredList.add(mMeetingList.get(i));
             }
         }
-
         return filteredList;
     }
 }

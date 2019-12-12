@@ -101,13 +101,14 @@ public class AddMeetingDialog extends DialogFragment implements MembersDialog.Se
 
         membersSpinner.setOnClickListener(v -> {
             MembersDialog membersDialog = new MembersDialog();
+            membersDialog.setItemsAlreadyChecked(null);
             membersDialog.setTargetFragment(AddMeetingDialog.this, REQUEST_CODE);
             membersDialog.show(getFragmentManager().beginTransaction(),"addmeetingdialog");
         });
 
         builder.setView(dialogView);
-        builder.setPositiveButton(R.string.add_Button, null);
-        builder.setNegativeButton("Annuler", (dialog, which) -> {
+        builder.setPositiveButton(R.string.add_button_french, null);
+        builder.setNegativeButton(getString(R.string.cancel_button_french), (dialog, which) -> {
         });
 
         AlertDialog alertDialog = builder.create();
@@ -168,7 +169,6 @@ public class AddMeetingDialog extends DialogFragment implements MembersDialog.Se
 
     @Override
     public void onMembersPositiveButtonClick(String selectedMembers) {
-        Log.d(TAG, "onMembersPositiveButtonClick: " + selectedMembers);
         membersSpinner.setText(selectedMembers);
     }
 }

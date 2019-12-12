@@ -1,11 +1,5 @@
 <resources>
     <string name="app_name">Ma réu</string>
-    <!-- fragment_meeting.xml -->
-    <string name="no_data">No data</string>
-
-    <!-- item_[...].xml -->
-    <string name="text_topic_hour_room">Refonte - 25/10/19 - 15h00 - Mario</string>
-    <string name="text_participant_mail">luc@lamzone.com, amandine@lamzone.com</string>
     <string name="meeting_deleted_french">"Réunion supprimée"</string>
     <string name="meeting_deleted_english">"Meeting deleted"</string>
     <string name="filter_button_french">"Filtrer"</string>
@@ -13,20 +7,10 @@
     <string name="filter_room_title_french">"Choisir une salle"</string>
     <string name="filter_room_title_english">"Pick a meeting room"</string>
     <string name="time_separator">":"</string>
-    <string name="add_Button">"Ajouter"</string>
-    <string name="Fill_all_fields">"Veuillez remplir tous les champs"</string>
-
-    <string-array name="members">
-        <item>anakin</item>
-        <item>cassandra</item>
-        <item>ilann</item>
-        <item>marie</item>
-        <item>michael</item>
-        <item>negan</item>
-        <item>sowann</item>
-        <item>stephane</item>
-        <item>stephanie</item>
-        <item>zena</item>
-    </string-array>
+    <string name="Fill_all_fields">"Veuillez remplir tous les champs\n- Sujet de la réunion\n- Date et heure de la réunion\n- Salle de réunion\n- Participants"</string>
+    <string name="add_button_french">"Ajouter"</string>
+    <string name="add_button_english">"Add"</string>
+    <string name="cancel_button_french">"Annuler"</string>
+    <string name="cancel_button_english">"Cancel"</string>
 </resources>
 

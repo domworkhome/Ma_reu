@@ -9,43 +9,53 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import com.lamzone.mareu.R;
+import com.lamzone.mareu.models.Member;
+import com.lamzone.mareu.services.DummyGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
 import static android.support.constraint.Constraints.TAG;
 
 public class MembersDialog extends DialogFragment {
 
-    private List<String> meetingMembers;
+    public void setItemsAlreadyChecked(boolean[] itemsAlreadyChecked){
+        this.itemsAlreadyChecked = itemsAlreadyChecked;
+    }
+
+    boolean[] itemsAlreadyChecked;
 
     public interface SelectedMembers {
         void onMembersPositiveButtonClick(String selectedMembers);
     }
+
     SelectedMembers callback;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        meetingMembers = new ArrayList<>();
+        List<String >meetingMembers = new ArrayList<>();
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("Choisissez les participants");
-        builder.setMultiChoiceItems(R.array.members, null, (dialog, which, isChecked) -> {
-            String[] items = getContext().getResources().getStringArray(R.array.members);
+        String[]membersList = DummyGenerator.dummyMembersGenerator().toArray(new String[0]);
+        itemsAlreadyChecked = new boolean[membersList.length];
+        builder.setMultiChoiceItems(membersList, itemsAlreadyChecked, (dialog, which, isChecked) -> {
             if(isChecked){
-                meetingMembers.add(items[which]);
-            } else if(meetingMembers.contains(items[which])){
-                meetingMembers.remove(items[which]);
-            }
+                meetingMembers.add(membersList[which]);
+            } else meetingMembers.remove(membersList[which]);
         });
 
-        builder.setPositiveButton("OK", (dialog, which) -> {
-            String final_selection = "";
-            for(String Item : meetingMembers){
-                final_selection = Item + ", " + final_selection;
+        builder.setPositiveButton(R.string.add_button_french, (dialog, which) -> {
+            String item = "";
+            for(String listItem : meetingMembers){
+                item = item + listItem;
+                if(which != meetingMembers.size() -1){
+                    item = item + ", ";
+                }
             }
-           callback.onMembersPositiveButtonClick(final_selection);
+           callback.onMembersPositiveButtonClick(item);
         });
 
-        builder.setNegativeButton("ANNULER", (dialog, which) -> {
+        builder.setNegativeButton(R.string.cancel_button_french, (dialog, which) -> {
         });
         return builder.create();
     }

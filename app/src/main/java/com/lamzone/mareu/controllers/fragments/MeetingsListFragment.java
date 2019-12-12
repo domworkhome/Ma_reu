@@ -24,7 +24,7 @@ import static android.support.constraint.Constraints.TAG;
 
 public class MeetingsListFragment extends Fragment implements AddMeetingDialog.NewMeetingDatasListener{
 
-    public static List<Meeting> mMeetings;
+    public List<Meeting> mMeetings;
     @BindView(R.id.list_meetings)
     RecyclerView mRecyclerView;
     @BindView(R.id.meeting_fab_add)
@@ -54,6 +54,7 @@ public class MeetingsListFragment extends Fragment implements AddMeetingDialog.N
                 DividerItemDecoration.VERTICAL));
         mApiService = Di.getApiService();
         mMeetings = mApiService.getMeetings();
+        //mListAdapter.updateList(mMeetings);
         mListAdapter = new MeetingsListAdapter(mMeetings);
         mRecyclerView.setAdapter(mListAdapter);
     }
