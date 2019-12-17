@@ -9,11 +9,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import com.lamzone.mareu.R;
-import com.lamzone.mareu.models.Member;
 import com.lamzone.mareu.services.DummyGenerator;
-
 import java.util.ArrayList;
 import java.util.List;
+
 import static android.support.constraint.Constraints.TAG;
 
 public class MembersDialog extends DialogFragment {

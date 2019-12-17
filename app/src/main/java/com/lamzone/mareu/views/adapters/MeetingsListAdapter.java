@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.lamzone.mareu.R;
 import com.lamzone.mareu.models.Meeting;
-import com.lamzone.mareu.services.ApiService;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,7 +17,6 @@ import butterknife.ButterKnife;
 public class MeetingsListAdapter extends RecyclerView.Adapter<MeetingsListAdapter.MeetingsViewHolder> {
 
     public List<Meeting> mMeetings;
-    ApiService mApiService;
 
     public MeetingsListAdapter(List<Meeting> meetings) {
         mMeetings = meetings;
@@ -69,9 +67,6 @@ public class MeetingsListAdapter extends RecyclerView.Adapter<MeetingsListAdapte
 
         meetingsViewHolder.mMeetingDelete.setOnClickListener(v -> {
             mMeetings.remove(position);
-//            mApiService = Di.getApiService();
-//            mMeetings = mApiService.getMeetings();
-//            mApiService.deleteMeeting(position);
             notifyItemRemoved(position);
             notifyItemRangeChanged(position,mMeetings.size());
             Toast.makeText(v.getContext(),R.string.meeting_deleted_french, Toast.LENGTH_SHORT).show();

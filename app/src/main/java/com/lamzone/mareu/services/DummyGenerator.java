@@ -2,16 +2,11 @@ package com.lamzone.mareu.services;
 
 import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.models.MeetingRoom;
-import com.lamzone.mareu.models.Member;
 import com.lamzone.mareu.R;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * // Created by Stéphane TAILLET on 20/10/2019
- */
 public abstract class DummyGenerator implements ApiService{
 
     public static List<MeetingRoom> mMeetingRoomList = Arrays.asList(
@@ -53,10 +48,6 @@ public abstract class DummyGenerator implements ApiService{
         return new ArrayList<>(mMeetingRoomList);
     }
 
-    /**
-     * Generates the dummy members
-     * @return a {@link List} of {@link Member}
-     */
     public static List<String> dummyMembersGenerator() {
         return new ArrayList<>(mMemberList);
     }

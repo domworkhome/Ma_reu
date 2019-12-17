@@ -6,21 +6,18 @@ import com.lamzone.mareu.models.MeetingRoom;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * // Created by Stéphane TAILLET on 20/10/2019
- */
 public interface ApiService {
 
     List<Meeting> getMeetings();
 
     /**
-     *
+     * Delete selected meeting
      * @param meeting
      */
     void deleteMeeting(Meeting meeting);
 
     /**
-     *
+     * Add a new meeting
      * @param meeting
      */
     void addMeeting(Meeting meeting);

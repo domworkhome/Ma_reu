@@ -6,13 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.lamzone.mareu.R;
-import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.views.dialogs.FilterDialog;
-
-import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

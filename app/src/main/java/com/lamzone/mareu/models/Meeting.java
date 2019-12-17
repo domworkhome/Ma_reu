@@ -2,9 +2,6 @@ package com.lamzone.mareu.models;
 
 import java.util.Objects;
 
-/**
- * // Created by Stéphane TAILLET on 20/10/2019
- */
 public class Meeting {
 
     private String mMeetingTopic;
@@ -35,19 +32,11 @@ public class Meeting {
         return mMembers + "@lamzone.com";
     }
 
-    public void setMeetingRoom(MeetingRoom meetingRoom) {
-        this.mMeetingRoom= meetingRoom;
-    }
-
     @Override
     public boolean equals(Object obj) {
-        // Same address
         if (this == obj) return true;
 
-        // Null or the class is different
         if (obj == null || getClass() != obj.getClass()) return false;
-
-        // Cast Object to Room
         Meeting meeting = (Meeting) obj;
 
         return Objects.equals(this.mMeetingTopic, meeting.mMeetingTopic);

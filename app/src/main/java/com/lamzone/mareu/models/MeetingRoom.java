@@ -4,24 +4,15 @@ import android.support.annotation.NonNull;
 
 import java.util.Objects;
 
-/**
- * // Created by Stéphane TAILLET on 20/10/2019
- */
 public class MeetingRoom {
-
-    // FIELDS
 
     private String mMeetingRoomName;
     private int mMeetingRoomPic;
-
-    // CONSTRUCTOR
 
     public MeetingRoom(String meetingRoomName, int meetingRoomPic) {
         mMeetingRoomName = meetingRoomName;
         mMeetingRoomPic = meetingRoomPic;
     }
-
-    // METHODS
 
     public String getMeetingRoomName() {
         return mMeetingRoomName;

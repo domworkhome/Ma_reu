@@ -52,9 +52,9 @@ public class MeetingsListFragment extends Fragment implements AddMeetingDialog.N
                 DividerItemDecoration.VERTICAL));
         mApiService = Di.getApiService();
         mMeetings = mApiService.getMeetings();
-        //mListAdapter.updateList(mMeetings);
         mListAdapter = new MeetingsListAdapter(mMeetings);
         mRecyclerView.setAdapter(mListAdapter);
+        dataChanged();
     }
 
     private void onClickMeetingAddFab(){
