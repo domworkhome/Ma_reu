@@ -2,10 +2,12 @@ package com.lamzone.mareu.views.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +21,7 @@ import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.models.MeetingRoom;
 import com.lamzone.mareu.services.DummyGenerator;
 import java.util.List;
+import static android.support.constraint.Constraints.TAG;
 
 public class FilterDialog extends DialogFragment {
 
@@ -63,6 +66,7 @@ public class FilterDialog extends DialogFragment {
                 .setPositiveButton(getString(R.string.filter_button_french),
                         (dialog, which) -> {
                             List<Meeting> filteredMeetings = Di.getApiService().filterByRoom(itemName);
+                            callback.onRoomFilterButtonClick();
                             Toast.makeText(getContext(),itemName, Toast.LENGTH_SHORT).show();
                         })
                 .setNegativeButton(getString(R.string.cancel_button_french),
@@ -71,5 +75,14 @@ public class FilterDialog extends DialogFragment {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
         return alertDialog;
+    }
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            callback = (FilterDialog.filterByRoom) getActivity();
+        } catch (ClassCastException e){
+            Log.d(TAG, "onAttach: ClassCastException : " + e.getMessage());
+        }
     }
 }
