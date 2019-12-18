@@ -23,4 +23,6 @@ public interface ApiService {
     void addMeeting(Meeting meeting);
 
     ArrayList<Meeting> filterByRoom(String meetingRoom);
+
+    ArrayList<Meeting> filterByDate(String meetingDate);
 }

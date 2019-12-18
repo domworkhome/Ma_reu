@@ -11,6 +11,7 @@ import android.util.Log;
 import com.lamzone.mareu.R;
 import com.lamzone.mareu.services.DummyGenerator;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static android.support.constraint.Constraints.TAG;
@@ -45,11 +46,13 @@ public class MembersDialog extends DialogFragment {
 
         builder.setPositiveButton(R.string.add_button_french, (dialog, which) -> {
             String item = "";
+            //ArrayList<String> listItem = new ArrayList(Arrays.asList(finalList.split()));
             for(String listItem : meetingMembers){
                 item = item + listItem;
                 if(which != meetingMembers.size() -1){
                     item = item + ", ";
                 }
+                item = item.substring(0, item.length() - 2);
             }
            callback.onMembersPositiveButtonClick(item);
         });

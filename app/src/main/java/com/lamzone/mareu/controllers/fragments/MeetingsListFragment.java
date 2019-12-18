@@ -10,12 +10,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.lamzone.mareu.MareuApplication;
 import com.lamzone.mareu.R;
 import com.lamzone.mareu.di.Di;
 import com.lamzone.mareu.models.Meeting;
 import com.lamzone.mareu.services.ApiService;
 import com.lamzone.mareu.views.adapters.MeetingsListAdapter;
 import com.lamzone.mareu.views.dialogs.AddMeetingDialog;
+
+import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,11 +54,18 @@ public class MeetingsListFragment extends Fragment implements AddMeetingDialog.N
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
                 DividerItemDecoration.VERTICAL));
+//        if (getActivity() == null) return;
+//        mApiService = ((MareuApplication)getActivity().getApplication()).getApiService();
         mApiService = Di.getApiService();
         mMeetings = mApiService.getMeetings();
-        mListAdapter = new MeetingsListAdapter(mMeetings);
+        mListAdapter = new MeetingsListAdapter(new ArrayList<>(mMeetings));
+        updateFilteredListByRoom(mMeetings);
         mRecyclerView.setAdapter(mListAdapter);
         dataChanged();
+    }
+
+    public void updateFilteredListByRoom(List<Meeting> meetingList){
+        mListAdapter.updateList(meetingList);
     }
 
     private void onClickMeetingAddFab(){

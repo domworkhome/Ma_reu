@@ -35,4 +35,17 @@ public class DummyApiService implements ApiService {
         }
         return filteredList;
     }
+
+    @Override
+    public ArrayList<Meeting> filterByDate(String meetingDate) {
+        ArrayList<Meeting> filteredList = new ArrayList<>();
+        for (int i = 0; i < mMeetingList.size(); i ++)
+        {
+            if (mMeetingList.get(i).getMeetingDate().equals(meetingDate))
+            {
+                filteredList.add(mMeetingList.get(i));
+            }
+        }
+        return filteredList;
+    }
 }

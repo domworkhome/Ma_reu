@@ -7,14 +7,17 @@ import com.lamzone.mareu.services.ApiService;
 
 public abstract class Di {
 
-    private static ApiService mService = new DummyApiService();
+    private static ApiService mService = null;
 
     /**
      *
      * @return the only instance of {@link ApiService}
      */
     public static ApiService getApiService() {
-        return mService;
+        if (mService == null){
+            mService = new DummyApiService();
+            return mService;
+        }else return mService;
     }
 
     /**

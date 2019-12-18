@@ -21,8 +21,9 @@
                 android:title="Filtrer par salle"/>
             <item
                 android:id="@+id/no_filter"
+                android:icon="@drawable/ic_clear_white_24dp"
                 app:showAsAction="ifRoom"
-                android:title="Liste des réunions"/>
+                android:title="Supprimer les filtres"/>
 
         </menu>
 

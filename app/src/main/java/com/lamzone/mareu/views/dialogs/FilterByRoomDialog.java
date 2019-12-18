@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 import com.lamzone.mareu.R;
 import com.lamzone.mareu.di.Di;
 import com.lamzone.mareu.models.Meeting;
@@ -23,13 +22,17 @@ import com.lamzone.mareu.services.DummyGenerator;
 import java.util.List;
 import static android.support.constraint.Constraints.TAG;
 
-public class FilterDialog extends DialogFragment {
+public class FilterByRoomDialog extends DialogFragment {
 
     public interface filterByRoom {
-        void onRoomFilterButtonClick();
+        void onRoomFilterButtonClick(List<Meeting> meetingList);
     }
 
     filterByRoom callback;
+
+    public void setFilterByRoomCallback(filterByRoom callback) {
+        this.callback = callback;
+    }
 
     List<MeetingRoom> listMeetingRoomNameAndPic;
     private ImageView roomSpinnerPic;
@@ -38,10 +41,9 @@ public class FilterDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-
         setCancelable(false);
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.filter_list_dialog, null);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.filter_list_by_room_dialog, null);
         Spinner spinner = view.findViewById(R.id.spinner_choice);
         roomSpinnerPic = view.findViewById(R.id.spinner_meeting_room_icon);
         listMeetingRoomNameAndPic = DummyGenerator.dummyMeetingRoomAndPicGenerator();
@@ -66,8 +68,7 @@ public class FilterDialog extends DialogFragment {
                 .setPositiveButton(getString(R.string.filter_button_french),
                         (dialog, which) -> {
                             List<Meeting> filteredMeetings = Di.getApiService().filterByRoom(itemName);
-                            callback.onRoomFilterButtonClick();
-                            Toast.makeText(getContext(),itemName, Toast.LENGTH_SHORT).show();
+                            callback.onRoomFilterButtonClick(filteredMeetings);
                         })
                 .setNegativeButton(getString(R.string.cancel_button_french),
                         (dialog, which) -> {});
@@ -76,11 +77,12 @@ public class FilterDialog extends DialogFragment {
         alertDialog.show();
         return alertDialog;
     }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         try {
-            callback = (FilterDialog.filterByRoom) getActivity();
+            callback = (FilterByRoomDialog.filterByRoom) getActivity();
         } catch (ClassCastException e){
             Log.d(TAG, "onAttach: ClassCastException : " + e.getMessage());
         }

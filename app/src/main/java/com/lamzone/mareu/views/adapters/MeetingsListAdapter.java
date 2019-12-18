@@ -9,7 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.lamzone.mareu.R;
+import com.lamzone.mareu.di.Di;
 import com.lamzone.mareu.models.Meeting;
+
+import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,8 +21,8 @@ public class MeetingsListAdapter extends RecyclerView.Adapter<MeetingsListAdapte
 
     public List<Meeting> mMeetings;
 
-    public MeetingsListAdapter(List<Meeting> meetings) {
-        mMeetings = meetings;
+    public MeetingsListAdapter(List<Meeting> meetingList) {
+        mMeetings = meetingList;
     }
 
     public static class MeetingsViewHolder extends RecyclerView.ViewHolder{
@@ -48,7 +51,7 @@ public class MeetingsListAdapter extends RecyclerView.Adapter<MeetingsListAdapte
 
     public void updateList(List<Meeting> meetingList){
         mMeetings.clear();
-        mMeetings.addAll(meetingList);
+        mMeetings.addAll(new ArrayList<>((meetingList)));
         notifyDataSetChanged();
     }
 
@@ -66,10 +69,8 @@ public class MeetingsListAdapter extends RecyclerView.Adapter<MeetingsListAdapte
         meetingsViewHolder.updateMeeting(meeting);
 
         meetingsViewHolder.mMeetingDelete.setOnClickListener(v -> {
-            mMeetings.remove(position);
-            notifyItemRemoved(position);
-            notifyItemRangeChanged(position,mMeetings.size());
-            Toast.makeText(v.getContext(),R.string.meeting_deleted_french, Toast.LENGTH_SHORT).show();
+            Di.getApiService().deleteMeeting(meeting);
+            updateList(Di.getApiService().getMeetings());
             });
     }
 

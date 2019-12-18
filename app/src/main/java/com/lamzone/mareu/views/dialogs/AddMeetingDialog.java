@@ -52,6 +52,7 @@ public class AddMeetingDialog extends DialogFragment implements MembersDialog.Se
     private Calendar mCalendar;
     private final static String EMPTY_STRING = "";
     public static final int REQUEST_CODE = 999;
+    final static long formatedDate = 24*60*60*1000;
     List<MeetingRoom> listMeetingRoomNameAndPic;
 
     public interface NewMeetingDatasListener {
@@ -77,7 +78,7 @@ public class AddMeetingDialog extends DialogFragment implements MembersDialog.Se
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), mDateDataSet,
                     mCalendar.get(Calendar.YEAR),
                     mCalendar.get(Calendar.MONTH),mCalendar.get(Calendar.DAY_OF_MONTH));
-            datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() +24*60*60*1000);
+            datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() + formatedDate);
             datePickerDialog.show();
         };
         tvDatePicker.setOnClickListener(dateListener);
