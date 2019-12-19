@@ -45,16 +45,14 @@ public class MembersDialog extends DialogFragment {
         });
 
         builder.setPositiveButton(R.string.add_button_french, (dialog, which) -> {
-            String item = "";
-            //ArrayList<String> listItem = new ArrayList(Arrays.asList(finalList.split()));
-            for(String listItem : meetingMembers){
-                item = item + listItem;
-                if(which != meetingMembers.size() -1){
-                    item = item + ", ";
+            String checkedMember = "";
+            for (int i = 0; i < meetingMembers.size(); i++){
+                checkedMember = checkedMember + meetingMembers.get(i)+ "@lamzone.com";
+                if(i != meetingMembers.size() -1){
+                    checkedMember = checkedMember +", ";
                 }
-                item = item.substring(0, item.length() - 2);
             }
-           callback.onMembersPositiveButtonClick(item);
+           callback.onMembersPositiveButtonClick(checkedMember);
         });
 
         builder.setNegativeButton(R.string.cancel_button_french, (dialog, which) -> {

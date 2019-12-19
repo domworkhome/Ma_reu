@@ -29,7 +29,7 @@ public class Meeting {
     }
 
     public String getMembers() {
-        return mMembers + "@lamzone.com";
+        return mMembers /*+ "@lamzone.com"*/;
     }
 
     @Override

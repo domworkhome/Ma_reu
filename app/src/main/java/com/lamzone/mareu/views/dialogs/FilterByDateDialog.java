@@ -53,7 +53,7 @@ public class FilterByDateDialog extends DialogFragment{
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth ) {
             month = month+1;
-            List<Meeting> filteredMeetings = Di.getApiService().filterByDate((dayOfMonth+"/"+ month +"/" + year));
+            List<Meeting> filteredMeetings = Di.getApiService().filterByDate(dayOfMonth+"/"+ month +"/" + year);
             callback.onDateFilterButtonClick(filteredMeetings);
         }
     };

@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lamzone.mareu.MareuApplication;
 import com.lamzone.mareu.R;
 import com.lamzone.mareu.di.Di;
 import com.lamzone.mareu.models.Meeting;
@@ -54,8 +53,6 @@ public class MeetingsListFragment extends Fragment implements AddMeetingDialog.N
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
                 DividerItemDecoration.VERTICAL));
-//        if (getActivity() == null) return;
-//        mApiService = ((MareuApplication)getActivity().getApplication()).getApiService();
         mApiService = Di.getApiService();
         mMeetings = mApiService.getMeetings();
         mListAdapter = new MeetingsListAdapter(new ArrayList<>(mMeetings));
