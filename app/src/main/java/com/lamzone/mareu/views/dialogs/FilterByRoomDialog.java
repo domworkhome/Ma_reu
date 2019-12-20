@@ -67,7 +67,7 @@ public class FilterByRoomDialog extends DialogFragment {
                 .setView(view)
                 .setPositiveButton(getString(R.string.filter_button_french),
                         (dialog, which) -> {
-                            List<Meeting> filteredMeetings = Di.getApiService().filterByRoom(itemName);
+                            List<Meeting> filteredMeetings = Di.getApiService().filter(itemName);
                             callback.onRoomFilterButtonClick(filteredMeetings);
                         })
                 .setNegativeButton(getString(R.string.cancel_button_french),

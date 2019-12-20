@@ -24,25 +24,14 @@ public class DummyApiService implements ApiService {
     }
 
     @Override
-    public ArrayList<Meeting> filterByRoom(String meetingRoom) {
+    public ArrayList<Meeting> filter(String meeting) {
         ArrayList<Meeting> filteredList = new ArrayList<>();
         for (int i = 0; i < mMeetingList.size(); i ++)
         {
-            if (mMeetingList.get(i).getMeetingRoom().getMeetingRoomName().equals(meetingRoom))
+            if (mMeetingList.get(i).getMeetingRoom().getMeetingRoomName().equals(meeting))
             {
                 filteredList.add(mMeetingList.get(i));
-            }
-        }
-        return filteredList;
-    }
-
-    @Override
-    public ArrayList<Meeting> filterByDate(String meetingDate) {
-        ArrayList<Meeting> filteredList = new ArrayList<>();
-        for (int i = 0; i < mMeetingList.size(); i ++)
-        {
-            String filteredMeetingList = mMeetingList.get(i).getMeetingDate().substring(0, 10);
-            if (filteredMeetingList.equals(meetingDate))
+            } else if (mMeetingList.get(i).getMeetingDate().contains(meeting))
             {
                 filteredList.add(mMeetingList.get(i));
             }

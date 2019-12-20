@@ -1,8 +1,6 @@
 package com.lamzone.mareu.services;
 
 import com.lamzone.mareu.models.Meeting;
-import com.lamzone.mareu.models.MeetingRoom;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +20,5 @@ public interface ApiService {
      */
     void addMeeting(Meeting meeting);
 
-    ArrayList<Meeting> filterByRoom(String meetingRoom);
-
-    ArrayList<Meeting> filterByDate(String meetingDate);
+    ArrayList<Meeting> filter(String meetingFilter);
 }
