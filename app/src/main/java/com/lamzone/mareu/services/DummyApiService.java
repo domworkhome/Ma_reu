@@ -41,7 +41,8 @@ public class DummyApiService implements ApiService {
         ArrayList<Meeting> filteredList = new ArrayList<>();
         for (int i = 0; i < mMeetingList.size(); i ++)
         {
-            if (mMeetingList.get(i).getMeetingDate().equals(meetingDate))
+            String filteredMeetingList = mMeetingList.get(i).getMeetingDate().substring(0, 10);
+            if (filteredMeetingList.equals(meetingDate))
             {
                 filteredList.add(mMeetingList.get(i));
             }
