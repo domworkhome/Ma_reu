@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class DummyGenerator implements ApiService{
 
-    public static List<MeetingRoom> mMeetingRoomList = Arrays.asList(
+    private static List<MeetingRoom> mMeetingRoomList = Arrays.asList(
 
             new MeetingRoom("Bowser", R.drawable.ic_bowser),
             new MeetingRoom("Daisy", R.drawable.ic_daisy),
@@ -25,22 +25,22 @@ public abstract class DummyGenerator implements ApiService{
 
     private static List<String> mMemberList = Arrays.asList(
 
-            ("anakin"),
-            ("cassandra"),
-            ("ilann"),
-            ("marie"),
-            ("michael"),
-            ("negan"),
-            ("sowann"),
-            ("stephane"),
-            ("stephanie"),
-            ("zena")
+            ("anakin@lamzone.com"),
+            ("cassandra@lamzone.com"),
+            ("ilann@lamzone.com"),
+            ("marie@lamzone.com"),
+            ("michael@lamzone.com"),
+            ("negan@lamzone.com"),
+            ("sowann@lamzone.com"),
+            ("stephane@lamzone.com"),
+            ("stephanie@lamzone.com"),
+            ("zena@lamzone.com")
     );
 
     private static List<Meeting> dummyMeetings = Arrays.asList(
-            new Meeting("Livraison", "21/12/2019 - 9:00 ", mMeetingRoomList.get(5), mMemberList.get(5) + "@lamzone.com, " + mMemberList.get(7) + "@lamzone.com"),
-            new Meeting("Ajout catalogue", "21/12/2019 - 10:00 ", mMeetingRoomList.get(4), mMemberList.get(4) + "@lamzone.com, " + mMemberList.get(9) + "@lamzone.com"),
-            new Meeting("Ressources", "22/12/2019 - 10:30", mMeetingRoomList.get(6), mMemberList.get(6) + "@lamzone.com, " + mMemberList.get(0) + "@lamzone.com")
+            new Meeting("Livraison", "21/12/2019 - 9:00 ", mMeetingRoomList.get(5), mMemberList.get(5) + ", " + mMemberList.get(7)),
+            new Meeting("Ajout catalogue", "21/12/2019 - 10:00 ", mMeetingRoomList.get(4), mMemberList.get(4) + ", " + mMemberList.get(9)),
+            new Meeting("Ressources", "22/12/2019 - 10:30", mMeetingRoomList.get(6), mMemberList.get(6) + ", " + mMemberList.get(0))
     );
 
     public static List<MeetingRoom> dummyMeetingRoomAndPicGenerator() {

@@ -15,6 +15,8 @@ import com.lamzone.mareu.di.Di;
 import com.lamzone.mareu.models.Meeting;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
+
 import butterknife.BindView;
 import static android.support.constraint.Constraints.TAG;
 
@@ -22,7 +24,6 @@ public class FilterByDateDialog extends DialogFragment{
 
     @BindView(R.id.tv_filterdatepicker)
     TextView tvFilterDatePicker;
-    final static long formatedDate = 24*60*60*1000;
 
     public interface filterByDate {
         void onDateFilterButtonClick(List<Meeting> meetingList);
@@ -38,11 +39,9 @@ public class FilterByDateDialog extends DialogFragment{
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         Calendar calendar = Calendar.getInstance();
-            if(getContext() == null) return null;
-            DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), mDateDataSet,
+            DatePickerDialog datePickerDialog = new DatePickerDialog(Objects.requireNonNull(getContext()), mDateDataSet,
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() + formatedDate);
                 datePickerDialog.show();
                 datePickerDialog.setCancelable(false);
             return datePickerDialog;
