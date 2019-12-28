@@ -13,13 +13,13 @@ public abstract class DummyGenerator implements ApiService{
 
             new MeetingRoom("Bowser", R.drawable.ic_bowser),
             new MeetingRoom("Daisy", R.drawable.ic_daisy),
-            new MeetingRoom("Donkey Kong", R.drawable.ic_donkey_kong),
             new MeetingRoom("Goomba", R.drawable.ic_goomba),
             new MeetingRoom("Koopa", R.drawable.ic_koopa),
             new MeetingRoom("Luigi", R.drawable.ic_luigi),
             new MeetingRoom("Mario", R.drawable.ic_mario),
             new MeetingRoom("Peach", R.drawable.ic_peach),
             new MeetingRoom("Toad", R.drawable.ic_toad),
+            new MeetingRoom("Wario", R.drawable.ic_wario),
             new MeetingRoom("Yoshi", R.drawable.ic_yoshi)
     );
 
@@ -38,9 +38,10 @@ public abstract class DummyGenerator implements ApiService{
     );
 
     private static List<Meeting> dummyMeetings = Arrays.asList(
-            new Meeting("Livraison", "21/12/2019 - 9:00 ", mMeetingRoomList.get(5), mMemberList.get(5) + ", " + mMemberList.get(7)),
-            new Meeting("Ajout catalogue", "21/12/2019 - 10:00 ", mMeetingRoomList.get(4), mMemberList.get(4) + ", " + mMemberList.get(9)),
-            new Meeting("Ressources", "22/12/2019 - 10:30", mMeetingRoomList.get(6), mMemberList.get(6) + ", " + mMemberList.get(0))
+            new Meeting("Livraison", "28/12/2019 - 9:00 ", mMeetingRoomList.get(5), mMemberList.get(5) + ", " + mMemberList.get(7)),
+            new Meeting("Ajout catalogue", "28/12/2019 - 10:00 ", mMeetingRoomList.get(4), mMemberList.get(4) + ", " + mMemberList.get(9)),
+            new Meeting("Ressources", "29/12/2019 - 10:30", mMeetingRoomList.get(7), mMemberList.get(7) + ", " + mMemberList.get(0)),
+            new Meeting("Ressources", "29/12/2019 - 10:30", mMeetingRoomList.get(9), mMemberList.get(9) + ", " + mMemberList.get(0))
     );
 
     public static List<MeetingRoom> dummyMeetingRoomAndPicGenerator() {
