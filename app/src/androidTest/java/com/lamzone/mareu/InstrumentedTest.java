@@ -3,6 +3,9 @@ package com.lamzone.mareu;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
 import com.lamzone.mareu.controllers.activities.MainActivity;
 import org.junit.Before;
 import org.junit.Rule;
