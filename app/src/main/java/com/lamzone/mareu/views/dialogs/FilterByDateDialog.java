@@ -13,8 +13,12 @@ import android.widget.TextView;
 import com.lamzone.mareu.R;
 import com.lamzone.mareu.di.Di;
 import com.lamzone.mareu.models.Meeting;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -22,6 +26,8 @@ import static android.support.constraint.Constraints.TAG;
 
 public class FilterByDateDialog extends DialogFragment{
 
+    private SimpleDateFormat mSimpleDateFormat;
+    private Calendar mCalendar;
     @BindView(R.id.tv_filterdatepicker)
     TextView tvFilterDatePicker;
 
@@ -38,10 +44,10 @@ public class FilterByDateDialog extends DialogFragment{
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        Calendar calendar = Calendar.getInstance();
+        mCalendar = Calendar.getInstance();
             DatePickerDialog datePickerDialog = new DatePickerDialog(Objects.requireNonNull(getContext()), mDateDataSet,
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+                mCalendar.get(Calendar.YEAR),
+                mCalendar.get(Calendar.MONTH), mCalendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
                 datePickerDialog.setCancelable(false);
             return datePickerDialog;
@@ -51,8 +57,13 @@ public class FilterByDateDialog extends DialogFragment{
 
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth ) {
-            month = month+1;
-            List<Meeting> filteredMeetings = Di.getApiService().filter(dayOfMonth+"/"+ month +"/" + year);
+            mSimpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            mCalendar = Calendar.getInstance();
+            mCalendar.set(Calendar.YEAR, year);
+            mCalendar.set(Calendar.MONTH, month);
+            mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            String chosenDate = mSimpleDateFormat.format(mCalendar.getTime());
+            List<Meeting> filteredMeetings = Di.getApiService().filter(chosenDate);
             callback.onDateFilterButtonClick(filteredMeetings);
         }
     };

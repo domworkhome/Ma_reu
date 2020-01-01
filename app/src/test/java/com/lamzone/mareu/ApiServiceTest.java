@@ -65,10 +65,10 @@ public class ApiServiceTest {
 
     @Test
     public void getFilteredListByRoom() {
-            String Roomtext = "Bowser";
-            Meeting meetingFilteredTest = new Meeting("reunion1",
-                    "31/12/2019 - 14:00",
-                    DummyGenerator.dummyMeetingRoomAndPicGenerator().get(0) ,
+            String Roomtext = "Wario";
+            Meeting meetingFilteredTest = new Meeting("filtre par salle",
+                    "01/01/2019 - 14:00",
+                    DummyGenerator.dummyMeetingRoomAndPicGenerator().get(8) ,
                     "sowann@lamzone.com, negan@lamzone.com");
                 mService.addMeeting(meetingFilteredTest);
             ArrayList<Meeting> filteredMeeting = mService.filter(Roomtext);
@@ -77,9 +77,9 @@ public class ApiServiceTest {
 
     @Test
     public void getFilteredListByDate() {
-        String DateText = "31/12/2019";
-        Meeting meetingFilteredTest = new Meeting("reunion1",
-                "31/12/2019 - 14:00",
+        String DateText = "04/12/2019";
+        Meeting meetingFilteredTest = new Meeting("filtre par date",
+                "04/12/2019 - 14:00",
                 DummyGenerator.dummyMeetingRoomAndPicGenerator().get(0) ,
                 "sowann@lamzone.com, negan@lamzone.com");
         mService.addMeeting(meetingFilteredTest);

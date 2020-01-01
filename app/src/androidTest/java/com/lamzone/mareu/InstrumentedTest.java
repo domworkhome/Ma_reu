@@ -1,11 +1,9 @@
 package com.lamzone.mareu;
 
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-
 import com.lamzone.mareu.controllers.activities.MainActivity;
 import org.junit.Before;
 import org.junit.Rule;
@@ -13,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
@@ -20,6 +19,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.assertThat;
 import static android.support.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.lamzone.mareu.utils.RecyclerViewItemCountAssertion.withItemCount;
@@ -35,7 +35,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
 public class InstrumentedTest {
 
     private MainActivity mActivity;
-    private static final int ITEMS_COUNT = 4;
+    private static final int ITEMS_COUNT = 5;
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule =
@@ -71,7 +71,24 @@ public class InstrumentedTest {
                 .perform(click());
         onData(anything()).atPosition(9).perform(click());
         onData(anything()).atPosition(5).perform(click());
-        onView(withText("AJOUTER")).perform(click());
+        onView(withId(android.R.id.button1)).perform(click());
+        onView(withId(android.R.id.button1)).perform(click());
         onView(withId(R.id.list_meetings)).check(withItemCount(ITEMS_COUNT + 1));
+    }
+
+    @Test
+    public void clickOnFilterByDate_thenGetFilteredMeetings(){
+        onView(withContentDescription("Filtrer")).perform(click());
+        onView(withText("Filtrer par date")).perform(click());
+        onView(withId(android.R.id.button1)).perform(click());
+        onView(withId(R.id.list_meetings)).check(matches(hasMinimumChildCount(1)));
+    }
+
+    @Test
+    public void clickOnFilterByRoom_thenGetFilteredMeetings(){
+        onView(withContentDescription("Filtrer")).perform(click());
+        onView(withText("Filtrer par salle")).perform(click());
+        onView(withId(android.R.id.button1)).perform(click());
+        onView(withId(R.id.list_meetings)).check(matches(hasMinimumChildCount(1)));
     }
 }

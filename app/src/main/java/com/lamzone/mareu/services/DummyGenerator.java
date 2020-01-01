@@ -38,10 +38,11 @@ public abstract class DummyGenerator implements ApiService{
     );
 
     private static List<Meeting> dummyMeetings = Arrays.asList(
-            new Meeting("Livraison", "28/12/2019 - 9:00 ", mMeetingRoomList.get(5), mMemberList.get(5) + ", " + mMemberList.get(7)),
-            new Meeting("Ajout catalogue", "28/12/2019 - 10:00 ", mMeetingRoomList.get(4), mMemberList.get(4) + ", " + mMemberList.get(9)),
-            new Meeting("Ressources", "29/12/2019 - 10:30", mMeetingRoomList.get(7), mMemberList.get(7) + ", " + mMemberList.get(0)),
-            new Meeting("Ressources", "29/12/2019 - 10:30", mMeetingRoomList.get(9), mMemberList.get(9) + ", " + mMemberList.get(0))
+            new Meeting("Livraison", "31/12/2019 - 9:00 ", mMeetingRoomList.get(5), mMemberList.get(5) + ", " + mMemberList.get(7)),
+            new Meeting("Ajout catalogue", "01/01/2020 - 10:00 ", mMeetingRoomList.get(4), mMemberList.get(4) + ", " + mMemberList.get(9)),
+            new Meeting("Ressources", "02/01/2020 - 10:30", mMeetingRoomList.get(7), mMemberList.get(7) + ", " + mMemberList.get(0)),
+            new Meeting("Opérations commerciales", "03/01/2020 - 10:30", mMeetingRoomList.get(9), mMemberList.get(9) + ", " + mMemberList.get(0)),
+            new Meeting("Soldes", "03/01/2020 - 11:00", mMeetingRoomList.get(0), mMemberList.get(2) + ", " + mMemberList.get(5))
     );
 
     public static List<MeetingRoom> dummyMeetingRoomAndPicGenerator() {
