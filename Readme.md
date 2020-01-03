@@ -1,6 +1,6 @@
 # OpenClassrooms - Project 4
 
-**Goal**: Create a POC (Proof of concept) meeting management application which name is **Maréu**.
+**Goal**: Create a POC (Proof of concept) meeting management application which name is **Ma réu**.
 
 
 ## Requirements
